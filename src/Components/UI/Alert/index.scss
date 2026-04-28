@@ -1,0 +1,63 @@
+//**Error
+$defaultBg:rgb(29 31 32 / 71%);
+$defaultColor:#c8c8c8;
+$defaultBorder:#c8c8c8;
+
+$infoColor:#bcc0ff;
+$infoBorder:#646cff;
+$infoBg:rgb(100 108 255 / 8%);
+
+$warningBg:rgb(255 197 23 / 5%);
+$warningColor:#fcd253;
+$warningBorder:rgba(255 , 213 , 0 , 0.793);
+
+$errorBg: rgb(192 29 29 / 15%);
+$errorColor:#ef8d8dfa;
+$errorBorder:rgba(255 , 25 , 0 , 0.322);
+
+$successBg:rgba(246 , 25 , 0 , 0.127);
+$successColor:#7acf58d6;
+$successBorder:rgba(0 , 255 , 0 , 0.322);
+
+$borderColor: rgba(255 , 25 , 0 , 0.322);
+$errorBg:rgb(192 29 29 /15%);
+$errorColor:#ef8d8dfa;
+
+@mixin alert($name , $borderColor, $bgColor, $color){
+  .#{$name}{
+    border: 2px dotted $borderColor;
+    border-radius: 0.8rem;
+    padding: 1.3rem;
+    background-color: $bgColor;
+    color: $color;
+    margin:20px;
+
+
+    .alert-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title{
+            display: flex;
+            align-items: center;
+        }
+        span svg{
+            margin-right: 0.6rem;
+        }
+        .close{
+            cursor: pointer;
+        }
+    }
+    p{
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height:1.5rem;
+        margin-top: 1.2rem;
+    }
+}  
+}
+
+@include alert("alert-danger" , $errorColor,$errorBg , $borderColor);
+@include alert("alert-info" , $infoColor,$infoBg , $infoColor);
+@include alert("alert-success" , $successColor,$successBg , $successColor);
+@include alert("alert-default" , $defaultColor,$defaultBg , $defaultColor);
